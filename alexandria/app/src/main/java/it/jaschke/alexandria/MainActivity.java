@@ -18,6 +18,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import it.jaschke.alexandria.api.Callback;
+import it.jaschke.alexandria.zxing.IntentIntegrator;
+import it.jaschke.alexandria.zxing.IntentResult;
 
 
 public class MainActivity extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks, Callback {
@@ -36,6 +38,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
     public static final String MESSAGE_EVENT = "MESSAGE_EVENT";
     public static final String MESSAGE_KEY = "MESSAGE_EXTRA";
+
+    private final String LOG_TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,5 +182,22 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         super.onBackPressed();
     }
 
-
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Handling scanning result from ZXing library
+        IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (scanningResult != null) {
+            String contents = scanningResult.getContents();
+            AddBook fragment = AddBook.newInstatnce(contents);
+            int id = R.id.container;
+            if(findViewById(R.id.right_container) != null){
+                id = R.id.right_container;
+            }
+            getSupportFragmentManager().beginTransaction()
+                    .replace(id, fragment)
+                    .commitAllowingStateLoss();
+        } else {
+            Toast.makeText(this, "No scan date received!", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
