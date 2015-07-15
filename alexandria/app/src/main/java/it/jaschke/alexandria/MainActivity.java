@@ -197,7 +197,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
                     .replace(id, fragment)
                     .commitAllowingStateLoss();
         } else {
-            Toast.makeText(this, "No scan date received!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No scan data received!", Toast.LENGTH_SHORT).show();
         }
     }
 }
