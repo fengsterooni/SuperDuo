@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -112,6 +113,8 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
         rootView.findViewById(R.id.save_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Snackbar.make(rootView, "Book with ISBN: " + ean.getText().toString() + " is added", Snackbar.LENGTH_SHORT)
+                        .show();
                 ean.setText("");
             }
         });
