@@ -1,5 +1,7 @@
 package barqsoft.footballscores;
 
+import android.text.format.Time;
+
 /**
  * Created by yehya khaled on 3/3/2015.
  */
@@ -81,5 +83,14 @@ public class Utilies {
             default:
                 return R.drawable.no_icon;
         }
+    }
+
+
+    public static long normalizeDate(long startDate) {
+        // normalize the start date to the beginning of the (UTC) day
+        Time time = new Time();
+        time.set(startDate);
+        int julianDay = Time.getJulianDay(startDate, time.gmtoff);
+        return time.setJulianDay(julianDay);
     }
 }

@@ -13,9 +13,6 @@ import android.support.v4.content.Loader;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-import java.util.Calendar;
-import java.util.Date;
-
 import barqsoft.footballscores.DatabaseContract;
 import barqsoft.footballscores.MainActivity;
 import barqsoft.footballscores.R;
@@ -47,10 +44,8 @@ public class ScoreWidgetIntentService extends IntentService implements LoaderMan
         int[] appWidgetIds = appWidgetManager
                 .getAppWidgetIds(new ComponentName(this, ScoreAppWidget.class));
 
-        Calendar cal = Calendar.getInstance();
-        Date date = cal.getTime();
         Log.i("INFO", "APPWIDGET SIZE: " + appWidgetIds.length);
-        Uri dateUri = DatabaseContract.scores_table.buildScoreWithLeague();
+        Uri dateUri = DatabaseContract.scores_table.buildScoreWithDate(Utilies.normalizeDate(System.currentTimeMillis()));
         // Log.i("INFO", "DATE URI: " + dateUri.toString());
         Cursor data = getContentResolver().query(dateUri, SCORE_COLUMNS, null, null, null);
 
