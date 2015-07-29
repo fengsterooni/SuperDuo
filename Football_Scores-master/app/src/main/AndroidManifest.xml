@@ -36,6 +36,8 @@
 
         <service android:name=".service.myFetchService" />
 
+        <service android:name=".service.ScoreWidgetIntentService" />
+
         <receiver android:name=".ScoreAppWidget" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

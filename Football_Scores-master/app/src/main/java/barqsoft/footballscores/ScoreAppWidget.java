@@ -1,11 +1,13 @@
 package barqsoft.footballscores;
 
-import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
-import android.widget.RemoteViews;
+import android.os.Bundle;
+import android.util.Log;
+
+import barqsoft.footballscores.service.ScoreWidgetIntentService;
 
 /**
  * Implementation of App Widget functionality.
@@ -14,13 +16,14 @@ public class ScoreAppWidget extends AppWidgetProvider {
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        // There may be multiple widgets active, so update all of them
-        final int N = appWidgetIds.length;
-        for (int i = 0; i < N; i++) {
-            updateAppWidget(context, appWidgetManager, appWidgetIds[i]);
-        }
+        context.startService(new Intent(context, ScoreWidgetIntentService.class));
+        Log.i("INFO", "ON UPDATE WIDGET");
     }
 
+    @Override
+    public void onAppWidgetOptionsChanged(Context context, AppWidgetManager appWidgetManager, int appWidgetId, Bundle newOptions) {
+        context.startService(new Intent(context, ScoreWidgetIntentService.class));
+    }
 
     @Override
     public void onEnabled(Context context) {
@@ -30,24 +33,6 @@ public class ScoreAppWidget extends AppWidgetProvider {
     @Override
     public void onDisabled(Context context) {
         // Enter relevant functionality for when the last widget is disabled
-    }
-
-    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
-                                int appWidgetId) {
-
-        CharSequence widgetText = context.getString(R.string.appwidget_text);
-        // Construct the RemoteViews object
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.score_app_widget);
-        views.setTextViewText(R.id.score_textview, widgetText);
-        // Utilies.getScores(cursor.getInt(COL_HOME_GOALS), cursor.getInt(COL_AWAY_GOALS))
-
-        // Led to the MainActivity
-        Intent launchIntent = new Intent(context, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, launchIntent, 0);
-        views.setOnClickPendingIntent(R.id.widget, pendingIntent);
-
-        // Instruct the widget manager to update the widget
-        appWidgetManager.updateAppWidget(appWidgetId, views);
     }
 }
 

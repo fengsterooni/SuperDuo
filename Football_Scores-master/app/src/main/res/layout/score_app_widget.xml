@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/blue01"
     android:padding="@dimen/widget_margin">
 
     <LinearLayout
@@ -19,7 +20,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/test_text"
-            android:textSize="@dimen/TeamNames" />
+            android:textSize="@dimen/widget_teamNames" />
 
         <TextView
             android:id="@+id/away_name"
@@ -29,7 +30,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/test_text"
-            android:textSize="@dimen/TeamNames" />
+            android:textSize="@dimen/widget_teamNames" />
     </LinearLayout>
 
     <TextView

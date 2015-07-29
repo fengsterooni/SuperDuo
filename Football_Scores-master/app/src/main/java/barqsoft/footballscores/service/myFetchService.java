@@ -139,7 +139,7 @@ public class myFetchService extends IntentService
         final String PREMIER_LEGAUE = "354";
         final String CHAMPIONS_LEAGUE = "362";
         final String PRIMERA_DIVISION = "358";
-        final String BUNDESLIGA = "351";
+        final String BUNDESLIGA = "395";
         final String SEASON_LINK = "http://api.football-data.org/alpha/soccerseasons/";
         final String MATCH_LINK = "http://api.football-data.org/alpha/fixtures/";
         final String FIXTURES = "fixtures";
@@ -168,13 +168,14 @@ public class myFetchService extends IntentService
 
         try {
             JSONArray matches = new JSONObject(JSONdata).getJSONArray(FIXTURES);
-
+            Log.i("INFO", "NO of Matches:" + matches.length());
 
             //ContentValues to be inserted
             Vector<ContentValues> values = new Vector <ContentValues> (matches.length());
             for(int i = 0;i < matches.length();i++)
             {
                 JSONObject match_data = matches.getJSONObject(i);
+                Log.i("INFO", match_data.toString());
                 League = match_data.getJSONObject(LINKS).getJSONObject(SOCCER_SEASON).
                         getString("href");
                 League = League.replace(SEASON_LINK,"");

@@ -24,7 +24,7 @@ public class DatabaseContract
         public static final String MATCH_DAY = "match_day";
 
         //public static Uri SCORES_CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH)
-                //.build();
+        //        .build();
 
         //Types
         public static final String CONTENT_TYPE =
@@ -32,6 +32,10 @@ public class DatabaseContract
         public static final String CONTENT_ITEM_TYPE =
                 ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH;
 
+        public static Uri buildScore()
+        {
+            return BASE_CONTENT_URI;
+        }
         public static Uri buildScoreWithLeague()
         {
             return BASE_CONTENT_URI.buildUpon().appendPath("league").build();
