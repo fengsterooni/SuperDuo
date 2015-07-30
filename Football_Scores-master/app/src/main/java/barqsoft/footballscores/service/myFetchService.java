@@ -17,13 +17,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
 import java.util.Vector;
 
 import barqsoft.footballscores.DatabaseContract;
 import barqsoft.footballscores.R;
+import barqsoft.footballscores.Utilies;
 
 /**
  * Created by yehya khaled on 3/2/2015.
@@ -166,6 +164,7 @@ public class myFetchService extends IntentService {
                 League = match_data.getJSONObject(LINKS).getJSONObject(SOCCER_SEASON).
                         getString("href");
                 League = League.replace(SEASON_LINK, "");
+
                 if (League.equals(PREMIER_LEGAUE) ||
                         League.equals(SERIE_A) ||
                         League.equals(CHAMPIONS_LEAGUE) ||
@@ -174,34 +173,22 @@ public class myFetchService extends IntentService {
                     match_id = match_data.getJSONObject(LINKS).getJSONObject(SELF).
                             getString("href");
                     match_id = match_id.replace(MATCH_LINK, "");
+
                     if (!isReal) {
                         //This if statement changes the match ID of the dummy data so that it all goes into the database
                         match_id = match_id + Integer.toString(i);
                     }
 
-                    mDate = match_data.getString(MATCH_DATE);
-                    mTime = mDate.substring(mDate.indexOf("T") + 1, mDate.indexOf("Z"));
-                    mDate = mDate.substring(0, mDate.indexOf("T"));
-                    SimpleDateFormat match_date = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss");
-                    match_date.setTimeZone(TimeZone.getTimeZone("UTC"));
-                    try {
-                        Date parseddate = match_date.parse(mDate + mTime);
-                        SimpleDateFormat new_date = new SimpleDateFormat("yyyy-MM-dd:HH:mm");
-                        new_date.setTimeZone(TimeZone.getDefault());
-                        mDate = new_date.format(parseddate);
-                        mTime = mDate.substring(mDate.indexOf(":") + 1);
-                        mDate = mDate.substring(0, mDate.indexOf(":"));
+                    String matchString = match_data.getString(MATCH_DATE);
 
-                        if (!isReal) {
-                            //This if statement changes the dummy data's date to match our current date range.
-                            Date fragmentdate = new Date(System.currentTimeMillis() + ((i - 2) * 86400000));
-                            SimpleDateFormat mformat = new SimpleDateFormat("yyyy-MM-dd");
-                            mDate = mformat.format(fragmentdate);
-                        }
-                    } catch (Exception e) {
-                        Log.d(LOG_TAG, "error here!");
-                        Log.e(LOG_TAG, e.getMessage());
+                    mDate = Utilies.getMatchDate(matchString);
+                    mTime = Utilies.getMatchTime(matchString);
+
+                    if (!isReal) {
+                        //This if statement changes the dummy data's date to match our current date range.
+                        mDate = Utilies.getFragmentDate(i - 2);
                     }
+
                     Home = match_data.getString(HOME_TEAM);
                     Away = match_data.getString(AWAY_TEAM);
                     Home_goals = match_data.getJSONObject(RESULT).getString(HOME_GOALS);
@@ -236,7 +223,7 @@ public class myFetchService extends IntentService {
             inserted_data = mContext.getContentResolver().bulkInsert(
                     DatabaseContract.BASE_CONTENT_URI, insert_data);
 
-            //Log.v(LOG_TAG,"Succesfully Inserted : " + String.valueOf(inserted_data));
+            Log.v(LOG_TAG,"Succesfully Inserted : " + String.valueOf(inserted_data));
         } catch (JSONException e) {
             Log.e(LOG_TAG, e.getMessage());
         }

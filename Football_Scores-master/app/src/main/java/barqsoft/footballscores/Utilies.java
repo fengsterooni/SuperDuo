@@ -1,6 +1,11 @@
 package barqsoft.footballscores;
 
+import android.content.Context;
 import android.text.format.Time;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Created by yehya khaled on 3/3/2015.
@@ -85,12 +90,115 @@ public class Utilies {
         }
     }
 
+    public static final long SECONDS_IN_A_DAY = 86400000;
 
-    public static long normalizeDate(long startDate) {
+    // Returns a LONG type date
+    public static long normalizeDate(long date) {
         // normalize the start date to the beginning of the (UTC) day
         Time time = new Time();
-        time.set(startDate);
-        int julianDay = Time.getJulianDay(startDate, time.gmtoff);
+        time.set(date);
+        int julianDay = Time.getJulianDay(date, time.gmtoff);
         return time.setJulianDay(julianDay);
+    }
+
+    // Returns a STRING "2015-07-18"
+    public static String getFragmentDate(int offSet) {
+        Date fragmentdate = new Date(System.currentTimeMillis() + (offSet * SECONDS_IN_A_DAY));
+        SimpleDateFormat mformat = new SimpleDateFormat("yyyy-MM-dd");
+        return mformat.format(fragmentdate);
+    }
+
+    // Returns a Long value from current date
+    public static long getLongDateWithOffset(int offSet) {
+        return System.currentTimeMillis() + (offSet * SECONDS_IN_A_DAY);
+    }
+
+    public static String getDayName(Context context, long dateInMillis) {
+        // If the date is today, return the localized version of "Today" instead of the actual
+        // day name.
+
+        Time t = new Time();
+        t.setToNow();
+
+        int julianDay = Time.getJulianDay(dateInMillis, t.gmtoff);
+        int currentJulianDay = Time.getJulianDay(System.currentTimeMillis(), t.gmtoff);
+
+        if (julianDay == currentJulianDay) {
+            return context.getString(R.string.today);
+        } else if (julianDay == currentJulianDay + 1) {
+            return context.getString(R.string.tomorrow);
+        } else if (julianDay == currentJulianDay - 1) {
+            return context.getString(R.string.yesterday);
+        } else {
+            Time time = new Time();
+            time.setToNow();
+            // Otherwise, the format is just the day of the week (e.g "Wednesday".
+            SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE");
+            return dayFormat.format(dateInMillis);
+        }
+    }
+
+    /*
+    mDate = match_data.getString(MATCH_DATE);
+    mTime = mDate.substring(mDate.indexOf("T") + 1, mDate.indexOf("Z"));
+    mDate = mDate.substring(0, mDate.indexOf("T"));
+    SimpleDateFormat match_date = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss");
+    match_date.setTimeZone(TimeZone.getTimeZone("UTC"));
+    try {
+        Date parseddate = match_date.parse(mDate + mTime);
+        SimpleDateFormat new_date = new SimpleDateFormat("yyyy-MM-dd:HH:mm");
+        new_date.setTimeZone(TimeZone.getDefault());
+        mDate = new_date.format(parseddate);
+        mTime = mDate.substring(mDate.indexOf(":") + 1);
+        mDate = mDate.substring(0, mDate.indexOf(":"));
+
+        if (!isReal) {
+            //This if statement changes the dummy data's date to match our current date range.
+            mDate = Utilies.getFragmentDate(i - 2);
+        }
+    } catch (Exception e) {
+        Log.d(LOG_TAG, "error here!");
+        Log.e(LOG_TAG, e.getMessage());
+    }
+    */
+
+    public static String getMatchDate(String dateString) {
+
+        String matchDate = dateString.substring(0, dateString.indexOf("T"));
+        String matchTime = dateString.substring(dateString.indexOf("T") + 1, dateString.indexOf("Z"));
+
+        SimpleDateFormat match_date = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss");
+        match_date.setTimeZone(TimeZone.getTimeZone("UTC"));
+        try {
+            Date parseddate = match_date.parse(matchDate + matchTime);
+            SimpleDateFormat new_date = new SimpleDateFormat("yyyy-MM-dd:HH:mm");
+            new_date.setTimeZone(TimeZone.getDefault());
+            matchDate = new_date.format(parseddate);
+            matchDate = matchDate.substring(0, matchDate.indexOf(":"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return matchDate;
+    }
+
+    public static String getMatchTime(String dateString) {
+
+        String matchTime  = dateString.substring(dateString.indexOf("T") + 1, dateString.indexOf("Z"));
+        String matchDate = dateString.substring(0, dateString.indexOf("T"));
+        SimpleDateFormat match_date = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss");
+        match_date.setTimeZone(TimeZone.getTimeZone("UTC"));
+        try {
+            Date parseddate = match_date.parse(matchDate + matchTime);
+            SimpleDateFormat new_date = new SimpleDateFormat("yyyy-MM-dd:HH:mm");
+            new_date.setTimeZone(TimeZone.getDefault());
+            matchDate = new_date.format(parseddate);
+            matchTime = matchDate.substring(matchDate.indexOf(":") + 1);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return matchTime;
     }
 }

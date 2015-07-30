@@ -45,9 +45,12 @@ public class ScoreWidgetIntentService extends IntentService implements LoaderMan
                 .getAppWidgetIds(new ComponentName(this, ScoreAppWidget.class));
 
         Log.i("INFO", "APPWIDGET SIZE: " + appWidgetIds.length);
-        Uri dateUri = DatabaseContract.scores_table.buildScoreWithDate(Utilies.normalizeDate(System.currentTimeMillis()));
+        Uri dateUri = DatabaseContract.scores_table.buildScoreWithDate();
         // Log.i("INFO", "DATE URI: " + dateUri.toString());
-        Cursor data = getContentResolver().query(dateUri, SCORE_COLUMNS, null, null, null);
+        String[] date = new String[1];
+        date[0] = Utilies.getFragmentDate(-2);
+        Cursor data = getContentResolver().query(dateUri, null, "date", date, null);
+        //Cursor data = getContentResolver().query(dateUri, SCORE_COLUMNS, null, date, null);
 
         if (data == null) {
             return;

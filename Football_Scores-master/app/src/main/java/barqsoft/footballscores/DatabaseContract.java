@@ -3,7 +3,6 @@ package barqsoft.footballscores;
 import android.content.ContentResolver;
 import android.net.Uri;
 import android.provider.BaseColumns;
-import android.util.Log;
 
 /**
  * Created by yehya khaled on 2/25/2015.
@@ -50,11 +49,8 @@ public class DatabaseContract {
             return BASE_CONTENT_URI.buildUpon().appendPath(Integer.toString(id)).build();
         }
 
-        public static Uri buildScoreWithDate(long date) {
-            Log.i("INFO", "Build with Date: " + date);
-            String temp = Long.toString(Utilies.normalizeDate(date));
-            Log.i("INFO", "Build with Date STRING: " + temp);
-            return BASE_CONTENT_URI.buildUpon().appendPath(temp).build();
+        public static Uri buildScoreWithDate() {
+            return BASE_CONTENT_URI.buildUpon().appendPath("date").build();
         }
 
         /*
