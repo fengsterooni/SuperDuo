@@ -92,6 +92,4 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
     public void onLoaderReset(Loader<Cursor> cursorLoader) {
         mAdapter.swapCursor(null);
     }
-
-
 }

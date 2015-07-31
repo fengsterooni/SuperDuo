@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.util.Log;
 
 /**
  * Created by yehya khaled on 2/25/2015.
@@ -131,6 +132,7 @@ public class ScoresProvider extends ContentProvider {
                         null,
                         null,
                         sortOrder);
+                Log.i("INFO", "ID PROVIDER CALLED!!!");
                 break;
             case MATCHES_WITH_LEAGUE:
                 retCursor = mOpenHelper.getReadableDatabase().query(

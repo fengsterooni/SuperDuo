@@ -25,14 +25,18 @@ public class ScoreWidgetIntentService extends IntentService implements LoaderMan
             DatabaseContract.scores_table.HOME_COL,
             DatabaseContract.scores_table.AWAY_COL,
             DatabaseContract.scores_table.HOME_GOALS_COL,
-            DatabaseContract.scores_table.AWAY_GOALS_COL
+            DatabaseContract.scores_table.AWAY_GOALS_COL,
+            DatabaseContract.scores_table.MATCH_ID,
+            DatabaseContract.scores_table.LEAGUE_COL
     };
 
-    public static final int COL_DATE = 1;
-    public static final int COL_HOME = 3;
-    public static final int COL_AWAY = 4;
-    public static final int COL_HOME_GOALS = 6;
-    public static final int COL_AWAY_GOALS = 7;
+    public static final int COL_DATE = 0;
+    public static final int COL_HOME = 1;
+    public static final int COL_AWAY = 2;
+    public static final int COL_HOME_GOALS = 3;
+    public static final int COL_AWAY_GOALS = 4;
+    public static final int MATCH_ID = 5;
+    public static final int COL_LEAGUE = 6;
 
     public ScoreWidgetIntentService() {
         super("ScoreWidgetIntentService");
@@ -45,12 +49,21 @@ public class ScoreWidgetIntentService extends IntentService implements LoaderMan
                 .getAppWidgetIds(new ComponentName(this, ScoreAppWidget.class));
 
         Log.i("INFO", "APPWIDGET SIZE: " + appWidgetIds.length);
+
         Uri dateUri = DatabaseContract.scores_table.buildScoreWithDate();
         // Log.i("INFO", "DATE URI: " + dateUri.toString());
-        String[] date = new String[1];
-        date[0] = Utilies.getFragmentDate(-2);
-        Cursor data = getContentResolver().query(dateUri, null, "date", date, null);
-        //Cursor data = getContentResolver().query(dateUri, SCORE_COLUMNS, null, date, null);
+        // String[] date = new String[1];
+        // date[0] = Utilies.getFragmentDate(-2);
+        //Cursor data = getContentResolver().query(dateUri, SCORE_COLUMNS, "date", date, null);
+        Cursor data = getContentResolver().query(dateUri, SCORE_COLUMNS, "date", null, null);
+
+        /*
+        Uri idUri = DatabaseContract.scores_table.buildScoreWithId();
+        Log.i("INFO", "ID URI: " + idUri.toString());
+        String[] id = new String[1];
+        id[0] = "140514";
+        Cursor data = getContentResolver().query(idUri, SCORE_COLUMNS, "id", id, null);
+        */
 
         if (data == null) {
             return;
@@ -65,16 +78,19 @@ public class ScoreWidgetIntentService extends IntentService implements LoaderMan
         String awayName = data.getString(COL_AWAY);
         int homeScore = data.getInt(COL_HOME_GOALS);
         int awayScore = data.getInt(COL_AWAY_GOALS);
+        int matchId = data.getInt(MATCH_ID);
+        String league = data.getString(COL_LEAGUE);
+
         data.close();
 
         Log.i("INFO", "PASSED PASSED PASSED");
-
+        Log.i("INFO", "MATCH ID: " + matchId);
         // There may be multiple widgets active, so update all of them
 
         for (int appWidgetId : appWidgetIds) {
 
             // Construct the RemoteViews object
-            RemoteViews views = new RemoteViews(getPackageName(), R.layout.score_app_widget);
+            RemoteViews views = new RemoteViews(getPackageName(), R.layout.score_app_widget_small);
             Log.i("INFO", "HOME NAME " + homeName);
             Log.i("INFO", "AWAY NAME " + awayName);
             Log.i("INFO", "SCORES " + Utilies.getScores(homeScore, awayScore));

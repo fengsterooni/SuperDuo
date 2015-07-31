@@ -41,23 +41,6 @@ public class DatabaseContract {
             return BASE_CONTENT_URI;
         }
 
-        public static Uri buildScoreWithLeague(String league) {
-            return BASE_CONTENT_URI.buildUpon().appendPath(league).build();
-        }
-
-        public static Uri buildScoreWithId(int id) {
-            return BASE_CONTENT_URI.buildUpon().appendPath(Integer.toString(id)).build();
-        }
-
-        public static Uri buildScoreWithDate() {
-            return BASE_CONTENT_URI.buildUpon().appendPath("date").build();
-        }
-
-        /*
-        public static Uri buildScore() {
-            return BASE_CONTENT_URI;
-        }
-
         public static Uri buildScoreWithLeague() {
             return BASE_CONTENT_URI.buildUpon().appendPath("league").build();
         }
@@ -69,6 +52,5 @@ public class DatabaseContract {
         public static Uri buildScoreWithDate() {
             return BASE_CONTENT_URI.buildUpon().appendPath("date").build();
         }
-        */
     }
 }
