@@ -121,10 +121,10 @@ public class myFetchService extends IntentService {
 
     private void processJSONdata(String JSONdata, Context mContext, boolean isReal) {
         //JSON data
-        final String SERIE_A = "357";
-        final String PREMIER_LEGAUE = "354";
+        final String SERIE_A = "401";
+        final String PREMIER_LEGAUE = "398";
         final String CHAMPIONS_LEAGUE = "362";
-        final String PRIMERA_DIVISION = "358";
+        final String PRIMERA_DIVISION = "399";
         final String BUNDESLIGA = "395";
         final String SEASON_LINK = "http://api.football-data.org/alpha/soccerseasons/";
         final String MATCH_LINK = "http://api.football-data.org/alpha/fixtures/";

@@ -46,24 +46,6 @@ public class ScoresProvider extends ContentProvider {
         return matcher;
     }
 
-    /*
-    private int match_uri(Uri uri) {
-        String link = uri.toString();
-        {
-            if (link.contentEquals(DatabaseContract.BASE_CONTENT_URI.toString())) {
-                return MATCHES;
-            } else if (link.contentEquals(DatabaseContract.scores_table.buildScoreWithDate().toString())) {
-                return MATCHES_WITH_DATE;
-            } else if (link.contentEquals(DatabaseContract.scores_table.buildScoreWithId().toString())) {
-                return MATCHES_WITH_ID;
-            } else if (link.contentEquals(DatabaseContract.scores_table.buildScoreWithLeague().toString())) {
-                return MATCHES_WITH_LEAGUE;
-            }
-        }
-        return -1;
-    }
-    */
-
     @Override
     public boolean onCreate() {
         mOpenHelper = new ScoresDBHelper(getContext());
