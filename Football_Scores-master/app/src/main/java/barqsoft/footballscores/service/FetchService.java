@@ -32,6 +32,7 @@ public class FetchService extends IntentService {
     final String FIXTURES = "fixtures";
     final String NEXT = "n";
     final String PREVIOUS = "p";
+    final String EMPTY = "";
 
     public FetchService() {
         super("FetchService");
@@ -125,11 +126,11 @@ public class FetchService extends IntentService {
 
     private void processJSONdata(String JSONdata, Context mContext, boolean isReal) {
         //JSON data
-        final String SERIE_A = "401";
-        final String PREMIER_LEGAUE = "398";
-        final String CHAMPIONS_LEAGUE = "362";
-        final String PRIMERA_DIVISION = "399";
-        final String BUNDESLIGA = "395";
+        final String SERIE_A = EMPTY + Utilies.SERIE_A ;
+        final String PREMIER_LEGAUE = EMPTY + Utilies.PREMIER_LEGAUE;
+        final String CHAMPIONS_LEAGUE = EMPTY + Utilies.CHAMPIONS_LEAGUE;
+        final String PRIMERA_DIVISION = EMPTY + Utilies.PRIMERA_DIVISION;
+        final String BUNDESLIGA = EMPTY + Utilies.BUNDESLIGA;
         final String SEASON_LINK = "http://api.football-data.org/alpha/soccerseasons/";
         final String MATCH_LINK = "http://api.football-data.org/alpha/fixtures/";
         final String LINKS = "_links";
@@ -143,7 +144,6 @@ public class FetchService extends IntentService {
         final String HOME_GOALS = "goalsHomeTeam";
         final String AWAY_GOALS = "goalsAwayTeam";
         final String MATCH_DAY = "matchday";
-        final String EMPTY = "";
 
         //Match data
         String League = null;
@@ -199,7 +199,7 @@ public class FetchService extends IntentService {
                     Home_goals = match_data.getJSONObject(RESULT).getString(HOME_GOALS);
                     Away_goals = match_data.getJSONObject(RESULT).getString(AWAY_GOALS);
                     match_day = match_data.getString(MATCH_DAY);
-                    
+
                     ContentValues match_values = new ContentValues();
                     match_values.put(DatabaseContract.scores_table.MATCH_ID, match_id);
                     match_values.put(DatabaseContract.scores_table.DATE_COL, mDate);

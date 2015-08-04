@@ -62,7 +62,7 @@ public class Utilies {
 
     public static int getTeamCrestByTeamName(String teamname) {
         if (teamname == null) {
-            return R.drawable.no_icon;
+            return R.drawable.ic_launcher;
         }
         switch (teamname) {
             case "Arsenal London FC":
@@ -86,7 +86,7 @@ public class Utilies {
             case "Stoke City FC":
                 return R.drawable.stoke_city;
             default:
-                return R.drawable.no_icon;
+                return R.drawable.ic_launcher;
         }
     }
 
