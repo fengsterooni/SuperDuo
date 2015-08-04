@@ -42,9 +42,9 @@ public class ScoresProvider extends ContentProvider {
         final String authority = DatabaseContract.CONTENT_AUTHORITY;
 
         matcher.addURI(authority, null, MATCHES);
-        matcher.addURI(authority, "league", MATCHES_WITH_LEAGUE);
-        matcher.addURI(authority, "id", MATCHES_WITH_ID);
-        matcher.addURI(authority, "date", MATCHES_WITH_DATE);
+        matcher.addURI(authority, DatabaseContract.PATH_LEAGUE, MATCHES_WITH_LEAGUE);
+        matcher.addURI(authority, DatabaseContract.PATH_ID, MATCHES_WITH_ID);
+        matcher.addURI(authority, DatabaseContract.PATH_DATE, MATCHES_WITH_DATE);
 
         return matcher;
     }

@@ -14,6 +14,9 @@ public class DatabaseContract {
     public static Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
     public static final String SCORES_TABLE = "scores_table";
+    public static final String PATH_LEAGUE = "league";
+    public static final String PATH_ID = "id";
+    public static final String PATH_DATE = "date";
 
     public static final class scores_table implements BaseColumns {
 
@@ -42,15 +45,15 @@ public class DatabaseContract {
         }
 
         public static Uri buildScoreWithLeague() {
-            return BASE_CONTENT_URI.buildUpon().appendPath("league").build();
+            return BASE_CONTENT_URI.buildUpon().appendPath(PATH_LEAGUE).build();
         }
 
         public static Uri buildScoreWithId() {
-            return BASE_CONTENT_URI.buildUpon().appendPath("id").build();
+            return BASE_CONTENT_URI.buildUpon().appendPath(PATH_ID).build();
         }
 
         public static Uri buildScoreWithDate() {
-            return BASE_CONTENT_URI.buildUpon().appendPath("date").build();
+            return BASE_CONTENT_URI.buildUpon().appendPath(PATH_DATE).build();
         }
     }
 }

@@ -53,7 +53,7 @@ public class ScoreWidgetIntentService extends IntentService implements LoaderMan
         // Log.i("INFO", "DATE URI: " + dateUri.toString());
         String[] date = new String[1];
         date[0] = Utilies.getFragmentDate(0);
-        Cursor data = getContentResolver().query(dateUri, SCORE_COLUMNS, "date", date, null);
+        Cursor data = getContentResolver().query(dateUri, SCORE_COLUMNS, DatabaseContract.PATH_DATE, date, null);
         // Cursor data = getContentResolver().query(dateUri, SCORE_COLUMNS, "date", null, null);
 
         /*

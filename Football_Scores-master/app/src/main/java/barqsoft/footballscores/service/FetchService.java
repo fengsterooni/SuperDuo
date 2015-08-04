@@ -28,6 +28,7 @@ import barqsoft.footballscores.Utilies;
  */
 public class FetchService extends IntentService {
     public static final String LOG_TAG = "FetchService";
+    final String FIXTURES = "fixtures";
 
     public FetchService() {
         super("FetchService");
@@ -100,7 +101,7 @@ public class FetchService extends IntentService {
         try {
             if (JSON_data != null) {
                 //This bit is to check if the data contains any matches. If not, we call processJson on the dummy data
-                JSONArray matches = new JSONObject(JSON_data).getJSONArray("fixtures");
+                JSONArray matches = new JSONObject(JSON_data).getJSONArray(FIXTURES);
                 if (matches.length() == 0) {
                     //if there is no data, call the function on dummy data
                     //this is expected behavior during the off season.
@@ -128,10 +129,10 @@ public class FetchService extends IntentService {
         final String BUNDESLIGA = "395";
         final String SEASON_LINK = "http://api.football-data.org/alpha/soccerseasons/";
         final String MATCH_LINK = "http://api.football-data.org/alpha/fixtures/";
-        final String FIXTURES = "fixtures";
         final String LINKS = "_links";
         final String SOCCER_SEASON = "soccerseason";
         final String SELF = "self";
+        final String HREF = "href";
         final String MATCH_DATE = "date";
         final String HOME_TEAM = "homeTeamName";
         final String AWAY_TEAM = "awayTeamName";
@@ -139,6 +140,7 @@ public class FetchService extends IntentService {
         final String HOME_GOALS = "goalsHomeTeam";
         final String AWAY_GOALS = "goalsAwayTeam";
         final String MATCH_DAY = "matchday";
+        final String EMPTY = "";
 
         //Match data
         String League = null;
@@ -162,8 +164,8 @@ public class FetchService extends IntentService {
                 JSONObject match_data = matches.getJSONObject(i);
                 Log.i("INFO", match_data.toString());
                 League = match_data.getJSONObject(LINKS).getJSONObject(SOCCER_SEASON).
-                        getString("href");
-                League = League.replace(SEASON_LINK, "");
+                        getString(HREF);
+                League = League.replace(SEASON_LINK, EMPTY);
 
                 if (League.equals(PREMIER_LEGAUE) ||
                         League.equals(SERIE_A) ||
@@ -171,8 +173,8 @@ public class FetchService extends IntentService {
                         League.equals(BUNDESLIGA) ||
                         League.equals(PRIMERA_DIVISION)) {
                     match_id = match_data.getJSONObject(LINKS).getJSONObject(SELF).
-                            getString("href");
-                    match_id = match_id.replace(MATCH_LINK, "");
+                            getString(HREF);
+                    match_id = match_id.replace(MATCH_LINK, EMPTY);
 
                     if (!isReal) {
                         //This if statement changes the match ID of the dummy data so that it all goes into the database
