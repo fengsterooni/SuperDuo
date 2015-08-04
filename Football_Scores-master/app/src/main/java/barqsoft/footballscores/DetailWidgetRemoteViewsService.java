@@ -84,7 +84,7 @@ public class DetailWidgetRemoteViewsService extends RemoteViewsService {
                 RemoteViews views = new RemoteViews(getPackageName(),
                         R.layout.widget_detail_list_item);
 
-                String homeName =  data.getString(COL_HOME);
+                String homeName = data.getString(COL_HOME);
                 String awayName = data.getString(COL_AWAY);
                 int homeGoal = data.getInt(COL_HOME_GOALS);
                 int awayGoal = data.getInt(COL_AWAY_GOALS);

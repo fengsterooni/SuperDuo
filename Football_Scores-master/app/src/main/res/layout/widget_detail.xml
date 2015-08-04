@@ -10,33 +10,36 @@
         android:id="@+id/widget"
         android:layout_width="match_parent"
         android:layout_height="@dimen/abc_action_bar_default_height_material">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/app_name"
             android:layout_gravity="center"
-            android:src="@drawable/ic_launcher"
-            />
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_launcher" />
     </FrameLayout>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
+
         <ListView
             android:id="@+id/widget_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@null"
             android:dividerHeight="0dp"
-            tools:listitem="@layout/widget_detail_list_item"/>
+            tools:listitem="@layout/widget_detail_list_item" />
+
         <TextView
             android:id="@+id/widget_empty"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:fontFamily="sans-serif-condensed"
-            android:textAppearance="?android:textAppearanceLarge"
-            android:text="Empty"/>
+            android:gravity="center"
+            android:text="Empty"
+            android:textAppearance="?android:textAppearanceLarge" />
     </FrameLayout>
 
 </LinearLayout>

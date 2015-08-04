@@ -3,31 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/widget_list_item"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:minHeight="?android:attr/listPreferredItemHeight"
+        android:orientation="horizontal"
         android:paddingLeft="@dimen/abc_list_item_padding_horizontal_material"
-        android:paddingRight="@dimen/abc_list_item_padding_horizontal_material"
-        android:orientation="horizontal">
+        android:paddingRight="@dimen/abc_list_item_padding_horizontal_material">
 
         <ImageView
             android:id="@+id/widget_icon"
-            android:layout_gravity="center"
             android:layout_width="@dimen/list_icon"
             android:layout_height="@dimen/list_icon"
-            android:layout_marginRight="@dimen/abc_list_item_padding_horizontal_material"
+            android:layout_gravity="center"
             android:layout_marginEnd="@dimen/abc_list_item_padding_horizontal_material"
-            tools:src="@drawable/ic_launcher"
-            />
+            android:layout_marginRight="@dimen/abc_list_item_padding_horizontal_material"
+            tools:src="@drawable/ic_launcher" />
 
         <LinearLayout
-            android:layout_height="wrap_content"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="7"
             android:orientation="vertical">
 
@@ -38,8 +36,8 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:textColor="@color/blue01"
                 android:text="@string/test_text"
+                android:textColor="@color/blue01"
                 android:textSize="@dimen/widget_teamNames" />
 
             <TextView
@@ -49,14 +47,14 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:textColor="@color/blue01"
                 android:text="@string/test_text"
+                android:textColor="@color/blue01"
                 android:textSize="@dimen/widget_teamNames" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_height="wrap_content"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="5"
             android:orientation="vertical">
 
@@ -67,8 +65,8 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:textColor="@color/blue01"
                 android:text="@string/test_text"
+                android:textColor="@color/blue01"
                 android:textSize="@dimen/widget_teamNames" />
 
             <TextView
@@ -78,8 +76,8 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:textColor="@color/blue01"
                 android:text="@string/test_text"
+                android:textColor="@color/blue01"
                 android:textSize="@dimen/widget_teamNames" />
         </LinearLayout>
 
