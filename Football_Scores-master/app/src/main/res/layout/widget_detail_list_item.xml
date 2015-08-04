@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/widget_list_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -25,22 +24,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:contentDescription="@string/widget_home_team_name"
                 android:gravity="center"
                 android:text="@string/test_text"
                 android:textColor="@color/blue01"
-                android:textSize="@dimen/widget_team"
-                android:contentDescription="@string/widget_home_team_name" />
+                android:textSize="@dimen/widget_team" />
 
             <TextView
                 android:id="@+id/away_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:contentDescription="@string/widget_away_team_name"
                 android:gravity="center"
                 android:text="@string/test_text"
                 android:textColor="@color/blue01"
-                android:textSize="@dimen/widget_team"
-                android:contentDescription="@string/widget_away_team_name" />
+                android:textSize="@dimen/widget_team" />
         </LinearLayout>
 
         <LinearLayout
@@ -54,22 +53,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:contentDescription="@string/widget_home_team_score"
                 android:gravity="center"
                 android:text="@string/test_text"
                 android:textColor="@color/blue01"
-                android:textSize="@dimen/widget_team"
-                android:contentDescription="@string/widget_home_team_score" />
+                android:textSize="@dimen/widget_team" />
 
             <TextView
                 android:id="@+id/away_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:contentDescription="@string/widget_away_team_score"
                 android:gravity="center"
                 android:text="@string/test_text"
                 android:textColor="@color/blue01"
-                android:textSize="@dimen/widget_team"
-                android:contentDescription="@string/widget_away_team_score" />
+                android:textSize="@dimen/widget_team" />
         </LinearLayout>
 
     </LinearLayout>

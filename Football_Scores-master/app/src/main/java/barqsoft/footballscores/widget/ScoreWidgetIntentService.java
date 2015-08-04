@@ -49,11 +49,11 @@ public class ScoreWidgetIntentService extends IntentService implements LoaderMan
 
         Log.i("INFO", "APPWIDGET SIZE: " + appWidgetIds.length);
 
-        // Uri dateUri = DatabaseContract.scores_table.buildScoreWithDate();
+        Uri dateUri = DatabaseContract.scores_table.buildScoreWithDate();
         // Log.i("INFO", "DATE URI: " + dateUri.toString());
-        // String[] date = new String[1];
-        // date[0] = Utilies.getFragmentDate(-2);
-        // Cursor data = getContentResolver().query(dateUri, SCORE_COLUMNS, "date", date, null);
+        String[] date = new String[1];
+        date[0] = Utilies.getFragmentDate(0);
+        Cursor data = getContentResolver().query(dateUri, SCORE_COLUMNS, "date", date, null);
         // Cursor data = getContentResolver().query(dateUri, SCORE_COLUMNS, "date", null, null);
 
         /*
@@ -73,12 +73,12 @@ public class ScoreWidgetIntentService extends IntentService implements LoaderMan
         Cursor data = getContentResolver().query(leagueUri, SCORE_COLUMNS, null, leagueN, null);
         */
 
-        Uri uri = DatabaseContract.scores_table.buildScore();
+        // Uri uri = DatabaseContract.scores_table.buildScore();
         // Log.i("INFO", "DATE URI: " + dateUri.toString());
         //String[] leagueN = new String[1];
         //leagueN[0] = "395";
         //Cursor data = getContentResolver().query(dateUri, SCORE_COLUMNS, "date", date, null);
-        Cursor data = getContentResolver().query(uri, SCORE_COLUMNS, null, null, null);
+        // Cursor data = getContentResolver().query(uri, SCORE_COLUMNS, null, null, null);
 
         if (data == null) {
             return;
@@ -105,7 +105,7 @@ public class ScoreWidgetIntentService extends IntentService implements LoaderMan
         for (int appWidgetId : appWidgetIds) {
 
             // Construct the RemoteViews object
-            RemoteViews views = new RemoteViews(getPackageName(), R.layout.score_app_widget_small);
+            RemoteViews views = new RemoteViews(getPackageName(), R.layout.score_app_widget);
             Log.i("INFO", "HOME NAME " + homeName);
             Log.i("INFO", "AWAY NAME " + awayName);
             Log.i("INFO", "SCORES " + Utilies.getScores(homeScore, awayScore));

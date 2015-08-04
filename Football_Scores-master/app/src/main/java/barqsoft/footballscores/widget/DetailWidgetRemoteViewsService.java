@@ -61,7 +61,7 @@ public class DetailWidgetRemoteViewsService extends RemoteViewsService {
 
                 Uri dateUri = DatabaseContract.scores_table.buildScoreWithDate();
                 String[] date = new String[1];
-                date[0] = Utilies.getFragmentDate(-1);
+                date[0] = Utilies.getFragmentDate(0);
                 data = getContentResolver().query(dateUri, SCORE_COLUMNS, "date", date, null);
                 Binder.restoreCallingIdentity(identityToken);
             }

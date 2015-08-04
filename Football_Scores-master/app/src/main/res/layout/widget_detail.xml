@@ -38,10 +38,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/blue01"
             android:gravity="center"
-            android:text="@string/empty_text"
+            android:text="@string/widget_empty_text"
             android:textAppearance="?android:textAppearanceLarge"
-            android:contentDescription="@string/empty_textview" />
+            android:contentDescription="@string/widget_empty_textview" />
     </FrameLayout>
 
 </LinearLayout>
