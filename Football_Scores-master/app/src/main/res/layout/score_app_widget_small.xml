@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/green13"
     android:padding="@dimen/widget_margin">
 
     <LinearLayout
@@ -15,21 +16,29 @@
             android:id="@+id/home_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:lines="2"
+            android:ellipsize="end"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:gravity="center"
+            android:textColor="@color/blue01"
             android:text="@string/test_text"
-            android:textSize="@dimen/widget_teamNames" />
+            android:textSize="@dimen/widget_team"
+            android:contentDescription="@string/widget_home_team_name" />
 
         <TextView
             android:id="@+id/away_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:lines="2"
+            android:ellipsize="end"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:gravity="center"
+            android:textColor="@color/blue01"
             android:text="@string/test_text"
-            android:textSize="@dimen/widget_teamNames" />
+            android:textSize="@dimen/widget_team"
+            android:contentDescription="@string/widget_away_team_name" />
     </LinearLayout>
 
     <TextView
@@ -39,7 +48,9 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:gravity="center"
+        android:textColor="@color/blue01"
         android:text="@string/test_text"
-        android:textSize="@dimen/widget_score" />
+        android:textSize="@dimen/widget_score"
+        android:contentDescription="@string/widget_match_score" />
 
 </LinearLayout>

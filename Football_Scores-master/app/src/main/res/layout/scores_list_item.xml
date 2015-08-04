@@ -32,7 +32,8 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="@string/test_text"
-                android:textSize="@dimen/TeamNames" />
+                android:textSize="@dimen/TeamNames"
+                android:contentDescription="@string/home_team_name" />
         </LinearLayout>
 
         <LinearLayout
@@ -49,7 +50,8 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/test_text"
-                android:textSize="@dimen/Score" />
+                android:textSize="@dimen/Score"
+                android:contentDescription="@string/match_score" />
 
             <TextView
                 android:id="@+id/data_textview"
@@ -58,7 +60,8 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/test_text" />
+                android:text="@string/test_text"
+                android:contentDescription="@string/match_time" />
 
         </LinearLayout>
 
@@ -83,7 +86,8 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="@string/test_text"
-                android:textSize="@dimen/TeamNames" />
+                android:textSize="@dimen/TeamNames"
+                android:contentDescription="@string/away_team_name" />
         </LinearLayout>
     </LinearLayout>
 

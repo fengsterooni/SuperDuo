@@ -19,7 +19,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/test_text"
-            android:textSize="@dimen/widget_teamNames" />
+            android:textSize="@dimen/widget_team"
+            android:contentDescription="@string/widget_home_team_name" />
 
         <TextView
             android:id="@+id/away_name"
@@ -29,7 +30,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/test_text"
-            android:textSize="@dimen/widget_teamNames" />
+            android:textSize="@dimen/widget_team"
+            android:contentDescription="@string/widget_away_team_name" />
     </LinearLayout>
 
     <TextView
@@ -40,6 +42,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="@string/test_text"
-        android:textSize="@dimen/widget_score" />
+        android:textSize="@dimen/widget_score"
+        android:contentDescription="@string/widget_match_score" />
 
 </LinearLayout>

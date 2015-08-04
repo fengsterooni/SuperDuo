@@ -21,7 +21,8 @@
             android:gravity="center"
             android:textColor="@color/blue01"
             android:text="@string/test_text"
-            android:textSize="@dimen/widget_teamNames" />
+            android:textSize="@dimen/widget_team"
+            android:contentDescription="@string/widget_home_team_name" />
 
         <TextView
             android:id="@+id/away_name"
@@ -32,7 +33,8 @@
             android:gravity="center"
             android:textColor="@color/blue01"
             android:text="@string/test_text"
-            android:textSize="@dimen/widget_teamNames" />
+            android:textSize="@dimen/widget_team"
+            android:contentDescription="@string/widget_away_team_name" />
     </LinearLayout>
 
     <TextView
@@ -44,6 +46,7 @@
         android:gravity="center"
         android:textColor="@color/blue01"
         android:text="@string/test_text"
-        android:textSize="@dimen/widget_score" />
+        android:textSize="@dimen/widget_score"
+        android:contentDescription="@string/widget_match_score" />
 
 </LinearLayout>

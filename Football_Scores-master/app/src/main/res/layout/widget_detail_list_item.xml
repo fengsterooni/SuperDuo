@@ -14,15 +14,6 @@
         android:paddingLeft="@dimen/abc_list_item_padding_horizontal_material"
         android:paddingRight="@dimen/abc_list_item_padding_horizontal_material">
 
-        <ImageView
-            android:id="@+id/widget_icon"
-            android:layout_width="@dimen/list_icon"
-            android:layout_height="@dimen/list_icon"
-            android:layout_gravity="center"
-            android:layout_marginEnd="@dimen/abc_list_item_padding_horizontal_material"
-            android:layout_marginRight="@dimen/abc_list_item_padding_horizontal_material"
-            tools:src="@drawable/ic_launcher" />
-
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -34,28 +25,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/test_text"
                 android:textColor="@color/blue01"
-                android:textSize="@dimen/widget_teamNames" />
+                android:textSize="@dimen/widget_team"
+                android:contentDescription="@string/widget_home_team_name" />
 
             <TextView
                 android:id="@+id/away_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/test_text"
                 android:textColor="@color/blue01"
-                android:textSize="@dimen/widget_teamNames" />
+                android:textSize="@dimen/widget_team"
+                android:contentDescription="@string/widget_away_team_name" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
+            android:layout_weight="2"
             android:orientation="vertical">
 
             <TextView
@@ -63,22 +54,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/test_text"
                 android:textColor="@color/blue01"
-                android:textSize="@dimen/widget_teamNames" />
+                android:textSize="@dimen/widget_team"
+                android:contentDescription="@string/widget_home_team_score" />
 
             <TextView
                 android:id="@+id/away_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/test_text"
                 android:textColor="@color/blue01"
-                android:textSize="@dimen/widget_teamNames" />
+                android:textSize="@dimen/widget_team"
+                android:contentDescription="@string/widget_away_team_score" />
         </LinearLayout>
 
     </LinearLayout>

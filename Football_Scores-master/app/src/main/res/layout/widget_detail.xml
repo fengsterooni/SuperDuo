@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/green13"
     android:padding="@dimen/widget_margin">
 
     <FrameLayout
@@ -38,8 +39,9 @@
             android:layout_height="match_parent"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
-            android:text="Empty"
-            android:textAppearance="?android:textAppearanceLarge" />
+            android:text="@string/empty_text"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:contentDescription="@string/empty_textview" />
     </FrameLayout>
 
 </LinearLayout>
