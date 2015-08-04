@@ -19,7 +19,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Vector;
 
-import barqsoft.footballscores.DatabaseContract;
+import barqsoft.footballscores.database.DatabaseContract;
 import barqsoft.footballscores.R;
 import barqsoft.footballscores.Utilies;
 

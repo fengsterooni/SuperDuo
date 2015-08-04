@@ -1,4 +1,4 @@
-package barqsoft.footballscores.service;
+package barqsoft.footballscores.widget;
 
 import android.app.IntentService;
 import android.app.PendingIntent;
@@ -13,10 +13,9 @@ import android.support.v4.content.Loader;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-import barqsoft.footballscores.DatabaseContract;
+import barqsoft.footballscores.database.DatabaseContract;
 import barqsoft.footballscores.MainActivity;
 import barqsoft.footballscores.R;
-import barqsoft.footballscores.ScoreAppWidget;
 import barqsoft.footballscores.Utilies;
 
 public class ScoreWidgetIntentService extends IntentService implements LoaderManager.LoaderCallbacks<Cursor> {

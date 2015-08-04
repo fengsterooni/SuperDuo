@@ -1,4 +1,4 @@
-package barqsoft.footballscores;
+package barqsoft.footballscores.widget;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -6,8 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-
-import barqsoft.footballscores.service.ScoreWidgetIntentService;
 
 /**
  * Implementation of App Widget functionality.

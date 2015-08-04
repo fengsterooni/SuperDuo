@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import barqsoft.footballscores.database.DatabaseContract;
 import barqsoft.footballscores.service.myFetchService;
 
 /**

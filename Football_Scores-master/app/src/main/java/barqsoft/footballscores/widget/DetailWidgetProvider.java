@@ -1,4 +1,4 @@
-package barqsoft.footballscores;
+package barqsoft.footballscores.widget;
 
 import android.annotation.TargetApi;
 import android.app.PendingIntent;
@@ -12,8 +12,11 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.TaskStackBuilder;
 import android.widget.RemoteViews;
 
+import barqsoft.footballscores.MainActivity;
+import barqsoft.footballscores.R;
+
 /**
- * Provider for a scrollable weather detail widget
+ * Provider for a scrollable score detail widget
  */
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class DetailWidgetProvider extends AppWidgetProvider {

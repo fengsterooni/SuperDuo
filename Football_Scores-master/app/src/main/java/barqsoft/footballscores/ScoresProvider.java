@@ -9,6 +9,9 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.util.Log;
 
+import barqsoft.footballscores.database.DatabaseContract;
+import barqsoft.footballscores.database.ScoresDBHelper;
+
 /**
  * Created by yehya khaled on 2/25/2015.
  */
