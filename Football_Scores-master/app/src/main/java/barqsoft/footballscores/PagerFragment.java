@@ -14,10 +14,10 @@ import android.view.ViewGroup;
  * Created by yehya khaled on 2/27/2015.
  */
 public class PagerFragment extends Fragment {
-    public static final int NUM_PAGES = 5;
+    public static final int NUM_PAGES = MainActivity.SPAN * 2 + 1;
     public ViewPager mPagerHandler;
     private myPageAdapter mPagerAdapter;
-    private MainScreenFragment[] viewFragments = new MainScreenFragment[5];
+    private MainScreenFragment[] viewFragments = new MainScreenFragment[NUM_PAGES];
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class PagerFragment extends Fragment {
         mPagerAdapter = new myPageAdapter(getChildFragmentManager());
         for (int i = 0; i < NUM_PAGES; i++) {
             viewFragments[i] = new MainScreenFragment();
-            viewFragments[i].setFragmentDate(Utilies.getFragmentDate(i - 2));
+            viewFragments[i].setFragmentDate(Utilies.getFragmentDate(i - MainActivity.SPAN));
         }
         mPagerHandler.setAdapter(mPagerAdapter);
         mPagerHandler.setCurrentItem(MainActivity.current_fragment);
@@ -51,7 +51,7 @@ public class PagerFragment extends Fragment {
         // Returns the page title for the top indicator
         @Override
         public CharSequence getPageTitle(int position) {
-            return Utilies.getDayName(getActivity(), Utilies.getLongDateWithOffset(position - 2));
+            return Utilies.getDayName(getActivity(), Utilies.getLongDateWithOffset(position - MainActivity.SPAN));
         }
     }
 }

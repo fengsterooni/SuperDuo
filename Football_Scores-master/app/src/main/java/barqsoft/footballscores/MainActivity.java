@@ -9,7 +9,8 @@ import android.view.MenuItem;
 
 public class MainActivity extends ActionBarActivity {
     public static int selected_match_id;
-    public static int current_fragment = 2;
+    public static int SPAN = 2;
+    public static int current_fragment = SPAN;
     private final String save_tag = "Save Test";
     private PagerFragment my_main;
 

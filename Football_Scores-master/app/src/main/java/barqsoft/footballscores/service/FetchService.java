@@ -19,6 +19,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Vector;
 
+import barqsoft.footballscores.MainActivity;
 import barqsoft.footballscores.database.DatabaseContract;
 import barqsoft.footballscores.R;
 import barqsoft.footballscores.Utilies;
@@ -29,6 +30,8 @@ import barqsoft.footballscores.Utilies;
 public class FetchService extends IntentService {
     public static final String LOG_TAG = "FetchService";
     final String FIXTURES = "fixtures";
+    final String NEXT = "n";
+    final String PREVIOUS = "p";
 
     public FetchService() {
         super("FetchService");
@@ -36,8 +39,8 @@ public class FetchService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        getData("n2");
-        getData("p2");
+        getData(NEXT + MainActivity.SPAN);
+        getData(PREVIOUS + MainActivity.SPAN);
 
         return;
     }
@@ -188,7 +191,7 @@ public class FetchService extends IntentService {
 
                     if (!isReal) {
                         //This if statement changes the dummy data's date to match our current date range.
-                        mDate = Utilies.getFragmentDate(i - 2);
+                        mDate = Utilies.getFragmentDate(i - MainActivity.SPAN);
                     }
 
                     Home = match_data.getString(HOME_TEAM);
@@ -196,6 +199,7 @@ public class FetchService extends IntentService {
                     Home_goals = match_data.getJSONObject(RESULT).getString(HOME_GOALS);
                     Away_goals = match_data.getJSONObject(RESULT).getString(AWAY_GOALS);
                     match_day = match_data.getString(MATCH_DAY);
+                    
                     ContentValues match_values = new ContentValues();
                     match_values.put(DatabaseContract.scores_table.MATCH_ID, match_id);
                     match_values.put(DatabaseContract.scores_table.DATE_COL, mDate);
