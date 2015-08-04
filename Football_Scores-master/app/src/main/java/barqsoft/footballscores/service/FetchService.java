@@ -26,11 +26,11 @@ import barqsoft.footballscores.Utilies;
 /**
  * Created by yehya khaled on 3/2/2015.
  */
-public class myFetchService extends IntentService {
-    public static final String LOG_TAG = "myFetchService";
+public class FetchService extends IntentService {
+    public static final String LOG_TAG = "FetchService";
 
-    public myFetchService() {
-        super("myFetchService");
+    public FetchService() {
+        super("FetchService");
     }
 
     @Override
@@ -223,7 +223,7 @@ public class myFetchService extends IntentService {
             inserted_data = mContext.getContentResolver().bulkInsert(
                     DatabaseContract.BASE_CONTENT_URI, insert_data);
 
-            Log.v(LOG_TAG,"Succesfully Inserted : " + String.valueOf(inserted_data));
+            Log.v(LOG_TAG,"Successfully Inserted : " + String.valueOf(inserted_data));
         } catch (JSONException e) {
             Log.e(LOG_TAG, e.getMessage());
         }
