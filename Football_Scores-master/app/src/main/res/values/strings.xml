@@ -53,6 +53,8 @@
     <string name="widget_text">This is a widget probably.</string>
     <string name="widget_home_team_name">Widget Home Team Name</string>
     <string name="widget_away_team_name">Widget Away Team Name</string>
+    <string name="widget_home_team_crest">Widget Home Team Crest</string>
+    <string name="widget_away_team_crest">Widget Away Team Crest</string>
     <string name="widget_match_score">Widget Match Score</string>
     <string name="widget_home_team_score">Widget Home Team Score</string>
     <string name="widget_away_team_score">Widget Away Team Score</string>

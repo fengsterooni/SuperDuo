@@ -86,8 +86,6 @@ public class ScoreWidgetIntentService extends IntentService implements LoaderMan
             views.setTextViewText(R.id.home_name, homeName);
             views.setTextViewText(R.id.away_name, awayName);
             views.setTextViewText(R.id.score_textview, Utilies.getScores(homeScore, awayScore));
-            // views.setTextViewText(R.id.home_score, "" + homeScore);
-            // views.setTextViewText(R.id.away_score, "" + awayScore);
 
             // Led to the MainActivity
             Intent launchIntent = new Intent(this, MainActivity.class);

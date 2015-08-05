@@ -1,74 +1,57 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/green13"
+    android:orientation="vertical"
+    android:padding="@dimen/widget_margin">
 
     <LinearLayout
-        android:id="@+id/widget"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/green13"
-        android:orientation="vertical"
-        android:padding="@dimen/widget_margin">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="5dp">
-
-            <TextView
-                android:id="@+id/home_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:contentDescription="@string/widget_home_team_name"
-                android:ellipsize="end"
-                android:gravity="center"
-                android:lines="2"
-                android:textColor="@color/blue01"
-                android:textSize="@dimen/widget_team" />
-
-            <TextView
-                android:id="@+id/away_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:contentDescription="@string/widget_away_team_name"
-                android:ellipsize="end"
-                android:gravity="center"
-                android:lines="2"
-                android:textColor="@color/blue01"
-                android:textSize="@dimen/widget_team" />
-        </LinearLayout>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5dp">
 
         <TextView
-            android:id="@+id/score_textview"
+            android:id="@+id/home_name"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:contentDescription="@string/widget_match_score"
+            android:contentDescription="@string/widget_home_team_name"
+            android:ellipsize="end"
             android:gravity="center"
+            android:lines="2"
+            android:text=""
             android:textColor="@color/blue01"
-            android:textSize="@dimen/widget_score" />
-
-    </LinearLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            android:textSize="@dimen/widget_team" />
 
         <TextView
-            android:id="@+id/widget_empty"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/widget_empty_textview"
-            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/away_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:contentDescription="@string/widget_away_team_name"
+            android:ellipsize="end"
             android:gravity="center"
-            android:text="@string/widget_empty_text"
-            android:textAppearance="?android:textAppearanceSmall"
-            android:textColor="@color/blue01" />
-    </FrameLayout>
-</FrameLayout>
+            android:lines="2"
+            android:text=""
+            android:textColor="@color/blue01"
+            android:textSize="@dimen/widget_team" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/score_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:contentDescription="@string/widget_match_score"
+        android:gravity="center"
+        android:text="@string/widget_empty_text"
+        android:textColor="@color/blue01"
+        android:textSize="@dimen/widget_score" />
+
+</LinearLayout>
+
