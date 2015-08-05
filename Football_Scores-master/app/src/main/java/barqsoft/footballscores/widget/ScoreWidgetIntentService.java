@@ -54,31 +54,6 @@ public class ScoreWidgetIntentService extends IntentService implements LoaderMan
         String[] date = new String[1];
         date[0] = Utilies.getFragmentDate(0);
         Cursor data = getContentResolver().query(dateUri, SCORE_COLUMNS, DatabaseContract.PATH_DATE, date, null);
-        // Cursor data = getContentResolver().query(dateUri, SCORE_COLUMNS, "date", null, null);
-
-        /*
-        Uri idUri = DatabaseContract.scores_table.buildScoreWithId();
-        Log.i("INFO", "ID URI: " + idUri.toString());
-        String[] id = new String[1];
-        id[0] = "140514";
-        Cursor data = getContentResolver().query(idUri, SCORE_COLUMNS, "id", id, null);
-        */
-
-        /*
-        Uri leagueUri = DatabaseContract.scores_table.buildScoreWithLeague();
-        // Log.i("INFO", "DATE URI: " + dateUri.toString());
-        String[] leagueN = new String[1];
-        leagueN[0] = "395";
-        //Cursor data = getContentResolver().query(dateUri, SCORE_COLUMNS, "date", date, null);
-        Cursor data = getContentResolver().query(leagueUri, SCORE_COLUMNS, null, leagueN, null);
-        */
-
-        // Uri uri = DatabaseContract.scores_table.buildScore();
-        // Log.i("INFO", "DATE URI: " + dateUri.toString());
-        //String[] leagueN = new String[1];
-        //leagueN[0] = "395";
-        //Cursor data = getContentResolver().query(dateUri, SCORE_COLUMNS, "date", date, null);
-        // Cursor data = getContentResolver().query(uri, SCORE_COLUMNS, null, null, null);
 
         if (data == null) {
             return;
@@ -98,8 +73,6 @@ public class ScoreWidgetIntentService extends IntentService implements LoaderMan
 
         data.close();
 
-        Log.i("INFO", "PASSED PASSED PASSED");
-        Log.i("INFO", "MATCH ID: " + matchId);
         // There may be multiple widgets active, so update all of them
 
         for (int appWidgetId : appWidgetIds) {
