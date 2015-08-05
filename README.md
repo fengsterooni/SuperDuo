@@ -38,3 +38,12 @@ _Football Scores:_
 ![screenshot](https://github.com/fengsterooni/SuperDuo/blob/master/alexandria.gif)
 
 ![screenshot](https://github.com/fengsterooni/SuperDuo/blob/master/football.gif)
+
+#### Libraries Used:
+
+_Alexandria:_
+* ZXing: https://github.com/zxing/zxing
+* ZXing Android Embedded: https://github.com/journeyapps/zxing-android-embedded
+
+
+_Football Scores:_

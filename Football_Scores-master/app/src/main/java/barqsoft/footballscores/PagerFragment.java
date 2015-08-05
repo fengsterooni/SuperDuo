@@ -53,5 +53,7 @@ public class PagerFragment extends Fragment {
         public CharSequence getPageTitle(int position) {
             return Utilies.getDayName(getActivity(), Utilies.getLongDateWithOffset(position - MainActivity.SPAN));
         }
+
+        
     }
 }

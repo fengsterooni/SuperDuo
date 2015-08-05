@@ -23,7 +23,7 @@
     <string name="share_button">Share Button</string>
     <string name="about_text_field">About Text Field</string>
     <string name="empty_text">No Game Today</string>
-    <string name="empty_textview">Widget Empty Text</string>
+    <string name="empty_textview">Empty Text Field</string>
 
     <!-- Match related -->
     <string name="today">Today</string>
