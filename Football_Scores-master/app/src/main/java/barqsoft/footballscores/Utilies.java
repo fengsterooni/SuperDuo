@@ -15,7 +15,7 @@ public class Utilies {
     public static final int PREMIER_LEGAUE = 398;
     public static final int CHAMPIONS_LEAGUE = 362;
     public static final int PRIMERA_DIVISION = 399;
-    public static final int BUNDESLIGA = 395;
+    public static final int BUNDESLIGA = 394;
 
     public static String getLeague(int league_num) {
         switch (league_num) {
