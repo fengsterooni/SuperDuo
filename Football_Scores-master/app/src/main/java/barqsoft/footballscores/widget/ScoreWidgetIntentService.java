@@ -81,11 +81,12 @@ public class ScoreWidgetIntentService extends IntentService implements LoaderMan
             RemoteViews views = new RemoteViews(getPackageName(), R.layout.score_app_widget);
             Log.i("INFO", "HOME NAME " + homeName);
             Log.i("INFO", "AWAY NAME " + awayName);
-            Log.i("INFO", "SCORES " + Utilies.getScores(homeScore, awayScore));
+            String scores = Utilies.getScores(homeScore, awayScore);
+            Log.i("INFO", "SCORES " + scores);
 
             views.setTextViewText(R.id.home_name, homeName);
             views.setTextViewText(R.id.away_name, awayName);
-            views.setTextViewText(R.id.score_textview, Utilies.getScores(homeScore, awayScore));
+            views.setTextViewText(R.id.score_textview, scores);
 
             // Led to the MainActivity
             Intent launchIntent = new Intent(this, MainActivity.class);

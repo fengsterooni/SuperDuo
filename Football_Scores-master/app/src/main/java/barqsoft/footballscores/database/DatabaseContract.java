@@ -39,6 +39,8 @@ public class DatabaseContract {
         public static final String AWAY_GOALS_COL = "away_goals";
         public static final String MATCH_ID = "match_id";
         public static final String MATCH_DAY = "match_day";
+        public static final String HOME_ID = "home_id";
+        public static final String AWAY_ID = "away_id";
 
         public static Uri buildScore() {
             return BASE_CONTENT_URI;

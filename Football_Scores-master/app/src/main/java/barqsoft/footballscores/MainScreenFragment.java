@@ -25,11 +25,14 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
     private String[] fragmentdate = new String[1];
     private int last_selected_item = -1;
 
+    public static final String ACTION_GETMATCHDATA = "barqsoft.fooballscores.GETMATCHDATA";
+
     public MainScreenFragment() {
     }
 
     private void update_scores() {
         Intent service_start = new Intent(getActivity(), FetchService.class);
+        service_start.setAction(ACTION_GETMATCHDATA);
         getActivity().startService(service_start);
     }
 
