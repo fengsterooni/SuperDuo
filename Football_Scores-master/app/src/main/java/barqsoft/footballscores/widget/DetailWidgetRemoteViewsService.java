@@ -95,8 +95,19 @@ public class DetailWidgetRemoteViewsService extends RemoteViewsService {
 
                 views.setTextViewText(R.id.home_name, homeName);
                 views.setTextViewText(R.id.away_name, awayName);
-                views.setTextViewText(R.id.home_score, "" + homeGoal);
-                views.setTextViewText(R.id.away_score, "" + awayGoal);
+
+                String homeScore = "";
+                String awayScore = "";
+                if (homeGoal != -1) {
+                    homeScore += homeGoal;
+                    awayScore += awayGoal;
+                } else {
+                    homeScore = "-";
+                    awayScore = "-";
+                }
+
+                views.setTextViewText(R.id.home_score, homeScore);
+                views.setTextViewText(R.id.away_score, awayScore);
 
                 final Intent fillInIntent = new Intent();
 
