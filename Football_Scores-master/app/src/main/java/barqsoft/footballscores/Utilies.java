@@ -294,8 +294,6 @@ public class Utilies {
         String Away_goals = null;
         String match_id = null;
         String match_day = null;
-        String home_id = null;
-        String away_id = null;
 
         try {
             JSONArray matches = new JSONObject(JSONdata).getJSONArray(FIXTURES);
@@ -318,14 +316,6 @@ public class Utilies {
                     match_id = match_data.getJSONObject(LINKS).getJSONObject(SELF).
                             getString(HREF);
                     match_id = match_id.replace(MATCH_LINK, EMPTY);
-
-                    home_id = match_data.getJSONObject(LINKS).getJSONObject(HOMETEAM_ID).
-                            getString(HREF);
-                    home_id = home_id.replace(TEAM_LINK, EMPTY);
-
-                    away_id = match_data.getJSONObject(LINKS).getJSONObject(AWAYTEAM_ID).
-                            getString(HREF);
-                    away_id = away_id.replace(TEAM_LINK, EMPTY);
 
                     if (!isReal) {
                         //This if statement changes the match ID of the dummy data so that it all goes into the database
@@ -357,8 +347,6 @@ public class Utilies {
                     match_values.put(DatabaseContract.scores_table.AWAY_GOALS_COL, Away_goals);
                     match_values.put(DatabaseContract.scores_table.LEAGUE_COL, League);
                     match_values.put(DatabaseContract.scores_table.MATCH_DAY, match_day);
-                    match_values.put(DatabaseContract.scores_table.HOME_ID, home_id);
-                    match_values.put(DatabaseContract.scores_table.AWAY_ID, away_id);
                     //log spam
 
                     //Log.v(LOG_TAG,match_id);
@@ -383,7 +371,5 @@ public class Utilies {
         } catch (JSONException e) {
             Log.e(LOG_TAG, e.getMessage());
         }
-
     }
-
 }
