@@ -5,12 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/green13"
-    android:padding="@dimen/widget_margin">
+    android:padding="@dimen/widget_margin"
+    android:contentDescription="@string/layout_widget_collection">
 
     <FrameLayout
         android:id="@+id/widget"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/abc_action_bar_default_height_material">
+        android:layout_height="@dimen/abc_action_bar_default_height_material"
+        android:contentDescription="@string/layout_widget_collection_header">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -23,7 +25,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:contentDescription="@string/layout_widget_collection_list">
 
         <ListView
             android:id="@+id/widget_list"

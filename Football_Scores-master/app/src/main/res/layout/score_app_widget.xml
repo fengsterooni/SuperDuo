@@ -4,13 +4,15 @@
     android:layout_height="match_parent"
     android:background="@color/green13"
     android:orientation="vertical"
-    android:padding="@dimen/widget_margin">
+    android:padding="@dimen/widget_margin"
+    android:contentDescription="@string/layout_single_widget">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="5dp">
+        android:paddingTop="5dp"
+        android:contentDescription="@string/layout_single_widget_team_name">
 
         <TextView
             android:id="@+id/home_name"

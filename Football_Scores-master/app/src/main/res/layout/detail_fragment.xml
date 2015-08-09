@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:contentDescription="@string/layout_match_detail">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/layout_match_league_stage">
 
         <TextView
             android:id="@+id/league_textview"
@@ -17,7 +19,7 @@
             android:gravity="center"
             android:text="@string/test_text"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/League"
+            android:textSize="@dimen/league_text_size"
             android:contentDescription="@string/league_name" />
 
         <TextView
@@ -28,14 +30,15 @@
             android:gravity="center"
             android:text="@string/test_text"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/League"
+            android:textSize="@dimen/league_text_size"
             android:contentDescription="@string/matchday" />
     </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/layout_share">
 
         <Button
             android:id="@+id/share_button"
