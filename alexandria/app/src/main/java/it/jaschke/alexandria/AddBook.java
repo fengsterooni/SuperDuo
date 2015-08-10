@@ -117,6 +117,7 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
                 Snackbar.make(rootView, "Book with ISBN: " + ean.getText().toString() + " is added", Snackbar.LENGTH_SHORT)
                         .show();
                 ean.setText("");
+                resetArgument();
             }
         });
 
@@ -128,13 +129,14 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
                 bookIntent.setAction(BookService.DELETE_BOOK);
                 getActivity().startService(bookIntent);
                 ean.setText("");
+                resetArgument();
             }
         });
 
         // If we have argument(s), it is from ZXing scanning
         // Fill in the EditText and get focus
         // This way, we can reuse the code to display book info
-        // and let user choose whether to add to the book list
+        // and let user choose whether to add to or delete from the book list
         Bundle args = getArguments();
         if (args != null) {
             ean.setText(args.getString(EAN_CONTENT));
@@ -147,6 +149,15 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
         }
 
         return rootView;
+    }
+
+    // This method makes sure that the argument is cleared
+    // It shall only be called when the ISBN EditText field is reset
+    // This will make sure that the scanned book would not come back
+    // during rotation after Save or Delete button is clicked
+    private void resetArgument() {
+        Bundle args = getArguments();
+        args.putString(EAN_CONTENT, null);
     }
 
     private void restartLoader() {
@@ -217,6 +228,7 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
         rootView.findViewById(R.id.bookCover).setVisibility(View.INVISIBLE);
         rootView.findViewById(R.id.save_button).setVisibility(View.INVISIBLE);
         rootView.findViewById(R.id.delete_button).setVisibility(View.INVISIBLE);
+        resetArgument();
     }
 
     @Override

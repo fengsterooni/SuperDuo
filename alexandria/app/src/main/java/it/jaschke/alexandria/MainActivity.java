@@ -189,10 +189,9 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         if (scanningResult != null) {
             String contents = scanningResult.getContents();
             AddBook fragment = AddBook.newInstance(contents);
-            int id = R.id.container;
 
             getSupportFragmentManager().beginTransaction()
-                    .replace(id, fragment)
+                    .replace(R.id.container, fragment)
                     .commitAllowingStateLoss();
         } else {
             Toast.makeText(this, "No scan data received!", Toast.LENGTH_SHORT).show();
