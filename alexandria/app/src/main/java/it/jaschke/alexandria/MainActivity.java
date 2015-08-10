@@ -190,9 +190,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
             String contents = scanningResult.getContents();
             AddBook fragment = AddBook.newInstance(contents);
             int id = R.id.container;
-            if (findViewById(R.id.right_container) != null) {
-                id = R.id.right_container;
-            }
+
             getSupportFragmentManager().beginTransaction()
                     .replace(id, fragment)
                     .commitAllowingStateLoss();
