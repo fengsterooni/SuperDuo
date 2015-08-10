@@ -40,7 +40,7 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
     public AddBook() {
     }
 
-    public static AddBook newInstatnce(String scanContents) {
+    public static AddBook newInstance(String scanContents) {
         AddBook fragment = new AddBook();
         Bundle args = new Bundle();
         if (scanContents != null) {
