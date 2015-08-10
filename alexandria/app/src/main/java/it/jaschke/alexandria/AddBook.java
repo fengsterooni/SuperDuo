@@ -36,6 +36,7 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
     private String mScanFormat = "Format:";
     private String mScanContents = "Contents:";
 
+    private static String eanString;
 
     public AddBook() {
     }
@@ -53,8 +54,10 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        if (ean != null) {
-            outState.putString(EAN_CONTENT, ean.getText().toString());
+
+        // Save the state of the EAN
+        if (eanString != null) {
+            outState.putString(EAN_CONTENT, eanString);
         }
     }
 
@@ -117,7 +120,7 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
                 Snackbar.make(rootView, "Book with ISBN: " + ean.getText().toString() + " is added", Snackbar.LENGTH_SHORT)
                         .show();
                 ean.setText("");
-                resetArgument();
+                eanString = null;
             }
         });
 
@@ -129,7 +132,7 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
                 bookIntent.setAction(BookService.DELETE_BOOK);
                 getActivity().startService(bookIntent);
                 ean.setText("");
-                resetArgument();
+                eanString = null;
             }
         });
 
@@ -139,25 +142,28 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
         // and let user choose whether to add to or delete from the book list
         Bundle args = getArguments();
         if (args != null) {
-            ean.setText(args.getString(EAN_CONTENT));
-            ean.requestFocus();
+            String eanText = args.getString(EAN_CONTENT);
+            // Make sure that EAN is read by the scanner
+            eanString = eanText;
+            // And the EAN is set only once
+            args.putString(EAN_CONTENT, null);
+
+            if (eanString != null) {
+                ean.setText(eanString);
+                ean.requestFocus();
+            }
         }
 
         if (savedInstanceState != null) {
-            ean.setText(savedInstanceState.getString(EAN_CONTENT));
-            ean.setHint("");
+            String eanText = savedInstanceState.getString(EAN_CONTENT);
+            // Save the EAN either from scanner or typed in
+            if (eanText != null) {
+                ean.setText(eanText);
+                ean.setHint("");
+            }
         }
 
         return rootView;
-    }
-
-    // This method makes sure that the argument is cleared
-    // It shall only be called when the ISBN EditText field is reset
-    // This will make sure that the scanned book would not come back
-    // during rotation after Save or Delete button is clicked
-    private void resetArgument() {
-        Bundle args = getArguments();
-        args.putString(EAN_CONTENT, null);
     }
 
     private void restartLoader() {
@@ -228,7 +234,7 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
         rootView.findViewById(R.id.bookCover).setVisibility(View.INVISIBLE);
         rootView.findViewById(R.id.save_button).setVisibility(View.INVISIBLE);
         rootView.findViewById(R.id.delete_button).setVisibility(View.INVISIBLE);
-        resetArgument();
+        eanString = null;
     }
 
     @Override
