@@ -1,12 +1,18 @@
-SuperDuo Project
+Super Duo
 =============
 
-This is an Android application of SuperDuo. It contains two apps: **Alexandria** and **Football Scores**.
+The project, **Super Duo**, is for [Udacity](www.udacity.com) [**"Android Developer Nanodegree"** program](https://www.udacity.com/course/android-developer-nanodegree--nd801).
 
-The project is for Udacity **"Android Developer Nanodegree"** program.
+It contains two apps: **Alexandria** and **Football Scores**.
+
+* **Alexandria**: A book list and barcode scanner app.
+
+* **Football Scores**: An app that tracks current and future football (soccer) matches.
+
+Need to improve two apps to improve User Experience (UX) and accessibility, implement features such as, scanner and widgets.
 
 
-###**_Completed user stories:_**
+### **_Completed user stories:_**
 
 #### Required:
 
@@ -35,7 +41,10 @@ _Football Scores:_
 
 ###**_Screencast:_**
 
+* **Alexandria**:
+
 ![screenshot](https://github.com/fengsterooni/SuperDuo/blob/master/alexandria.gif)
+* **Football Scores**:
 
 ![screenshot](https://github.com/fengsterooni/SuperDuo/blob/master/football.gif)
 
