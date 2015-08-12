@@ -1,9 +1,11 @@
 Super Duo
 =============
 
-The project, **Super Duo**, is for [Udacity](www.udacity.com) [**"Android Developer Nanodegree"** program](https://www.udacity.com/course/android-developer-nanodegree--nd801).
+This project, **Super Duo**, is for [Udacity](www.udacity.com) [**"Android Developer Nanodegree"** program](https://www.udacity.com/course/android-developer-nanodegree--nd801).
 
-It contains two apps: **Alexandria** and **Football Scores**.
+### **_Introduction:_**
+
+This project contains two apps: **Alexandria** and **Football Scores**.
 
 * **Alexandria**: A book list and barcode scanner app.
 
@@ -39,15 +41,6 @@ _Football Scores:_
 * Football Scores also support a collection widget.
 * Strings are all included in the strings.xml file and untranslatable strings have a translatable tag marked to false.
 
-###**_Screencast:_**
-
-* **Alexandria**:
-
-![screenshot](https://github.com/fengsterooni/SuperDuo/blob/master/alexandria.gif)
-* **Football Scores**:
-
-![screenshot](https://github.com/fengsterooni/SuperDuo/blob/master/football.gif)
-
 #### Libraries Used:
 
 _Alexandria:_
@@ -56,3 +49,13 @@ _Alexandria:_
 
 
 _Football Scores:_
+
+###**_Screencast:_**
+
+* **Alexandria**:
+
+![screenshot](https://github.com/fengsterooni/SuperDuo/blob/master/alexandria.gif)
+
+* **Football Scores**:
+
+![screenshot](https://github.com/fengsterooni/SuperDuo/blob/master/football.gif)
